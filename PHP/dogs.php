@@ -3,7 +3,7 @@
 	if(isset($_POST['searchQuery']))
 	{
 		$search_query=$_POST['searchQuery'];
-          $sql = 'SELECT * from dogs where MATCH(Foods_id) AGAINST(:search_query)';
+          $sql = 'SELECT * from dogs where MATCH(food_id, food_value) AGAINST(:search_query)';
           $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);
           $statement->execute();
