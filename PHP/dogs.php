@@ -2,6 +2,7 @@
 
 	if(isset($_POST['searchQuery']))
 	{
+		require_once('config.inc.php');
 		$search_query=$_POST['searchQuery'];
           $sql = 'SELECT * from dogs where MATCH(food_id) AGAINST(:search_query)';
           $statement = $connection->prepare($sql);
