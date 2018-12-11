@@ -1,6 +1,14 @@
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 CREATE TABLE IF NOT EXISTS dogs (
-    `Foods_id` VARCHAR(15) CHARACTER SET utf8,
-    `Foods_value` VARCHAR(585) CHARACTER SET utf8
+    `Food_id` VARCHAR(15) CHARACTER SET utf8,
+    `Food_value` VARCHAR(585) CHARACTER SET utf8
+     KEY `food_id` (`food_id`),
+  FULLTEXT KEY `my_index` (`food_id`,`food_value')
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
 );
 INSERT INTO dogs VALUES
     ('Alcohol','Alcoholic beverages and food products containing alcohol can cause vomiting, diarrhea, decreased coordination, central nervous system depression, difficulty breathing, tremors, abnormal blood acidity, coma and even death. Under no circumstances should your pet be given any alcohol. If you suspect that your pet has ingested alcohol, contact your veterinarian or the ASPCA Animal Poison Control Center immediately.'),
