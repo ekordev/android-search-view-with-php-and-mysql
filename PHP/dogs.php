@@ -2,8 +2,7 @@
 
 	if(isset($_POST['searchQuery']))
 	{
-     	  require_once('config.inc.php');
-		  $search_query=$_POST['searchQuery'];
+		$search_query=$_POST['searchQuery'];
           $sql = 'SELECT * from dogs where MATCH(Foods_id) AGAINST(:search_query)';
           $statement = $connection->prepare($sql);
 		  $statement->bindParam(':search_query', $search_query, PDO::PARAM_STR);
